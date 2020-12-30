@@ -1,0 +1,2 @@
+[containers]
+python_con[1:5] ansible_connection=docker

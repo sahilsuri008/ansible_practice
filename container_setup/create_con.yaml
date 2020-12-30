@@ -1,0 +1,13 @@
+--- 
+- name: create containers
+  hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: create containers
+    docker_container:
+     name: "{{item}}"
+     state: started
+     interactive: yes
+     image: python
+    loop: "{{query('inventory_hostnames', 'containers')}}"

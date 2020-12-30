@@ -1,0 +1,20 @@
+--- 
+- name: Add a user
+  hosts: all
+  gather_facts: no
+  vars:
+   uname: sahil
+
+  tasks:
+  - name: Add a user
+    user:
+     name: "{{uname}}"
+     state: present
+
+  - name: get outut
+    command: grep sahil /etc/passwd
+    register: result
+ 
+  - name: display output
+    debug:
+     msg: "{{result.stdout_lines}}"

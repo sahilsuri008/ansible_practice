@@ -1,0 +1,12 @@
+[centos]
+centos_cont[1:2] 
+
+[ubuntu]
+python_con[1:5]
+
+[containers:children]
+centos
+ubuntu
+
+[containers:vars]
+ansible_connection=docker
