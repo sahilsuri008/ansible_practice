@@ -2,14 +2,14 @@
 - name: Add a user
   hosts: all
   gather_facts: no
-  vars:
-   uname: sahil
+  vars_files:
+   vars/user.yaml
 
   tasks:
   - name: Add a user
     user:
      name: "{{uname}}"
-     state: present
+     state: absent
 
   - name: get outut
     command: grep sahil /etc/passwd
