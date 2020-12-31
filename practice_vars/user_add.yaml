@@ -1,9 +1,13 @@
 --- 
 - name: Add a user
-  hosts: all
+  hosts: centos
   gather_facts: no
 
   tasks:
+  - name: Use include_vars module
+    include_vars:
+     file: vars.yaml
+
   - name: Add a user
     user:
      name: "{{uname}}"
