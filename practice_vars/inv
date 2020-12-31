@@ -10,3 +10,9 @@ ubuntu
 
 [containers:vars]
 ansible_connection=docker
+
+[centos:vars]
+uname=sahil
+
+[ubuntu:vars]
+uname=suri

@@ -2,19 +2,17 @@
 - name: Add a user
   hosts: all
   gather_facts: no
-  vars_files:
-   vars/user.yaml
 
   tasks:
   - name: Add a user
     user:
      name: "{{uname}}"
-     state: absent
+     state: present
 
   - name: get outut
-    command: grep sahil /etc/passwd
+    shell: "grep -E 'sahil|suri' /etc/passwd"
     register: result
  
   - name: display output
     debug:
-     msg: "{{result.stdout_lines}}"
+     var: result.stdout_lines
