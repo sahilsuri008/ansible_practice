@@ -1,0 +1,13 @@
+---
+- name: Demonstrate ansible vault usage
+  hosts: localhost
+  gather_facts: no
+  vars_files:
+   pass.txt
+
+  tasks: 
+  - name: Add a user
+    user:
+     name: sahil
+     state: present
+     password: "{{ secret | password_hash('sha512') }}"
